@@ -271,21 +271,14 @@ public class Signup extends javax.swing.JFrame {
         
         
 
-        if(tp.length()!=10){
-            JOptionPane.showMessageDialog(null,"invalid telephone number");
-            telephone.setText("");
+        if(tp.length()!=10 || username.equals("") || password.equals("")){
+             error2 se = new error2();
+                se.setVisible(true);
+                this.setVisible(false);
+           
         }
 
-        else if(username.equals(""))
-        {
-            JOptionPane.showMessageDialog(null,"Add A Username");
-        }
-        else if(password.equals(""))
-        {
-            JOptionPane.showMessageDialog(null,"Add A Password");
-        }
-
-        else if(password.equals(password2)){
+          else if(password.equals(password2)){
 
             Encoder encoder = Base64.getEncoder();
             String pw =  encoder.encodeToString(password.getBytes());

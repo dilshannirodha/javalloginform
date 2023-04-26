@@ -230,14 +230,6 @@ public class Signin extends javax.swing.JFrame {
          String username = jusername.getText();
         String password = jpassword.getText();
         
-        if(username.equals(""))
-        {
-            JOptionPane.showMessageDialog(null,"Add the Username");
-        }
-        else if(password.equals(""))
-        {
-            JOptionPane.showMessageDialog(null,"Add the Password");
-        }
         
       Encoder encoder = Base64.getEncoder();
             String encoded =  encoder.encodeToString(password.getBytes());
@@ -260,7 +252,9 @@ public class Signin extends javax.swing.JFrame {
          
             }else    
             {
-                JOptionPane.showMessageDialog(rootPane, "Your signin failed");
+                error se = new error();
+                se.setVisible(true);
+                this.setVisible(false);
             }
         } catch (Exception e) {
         }       
